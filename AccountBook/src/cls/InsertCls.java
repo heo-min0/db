@@ -3,6 +3,7 @@ package cls;
 import java.util.Scanner;
 
 import dao.AccountDao;
+import dto.AccountDto;
 
 public class InsertCls {
 
@@ -23,7 +24,14 @@ public class InsertCls {
 		System.out.print("메모:");
 		String memo = sc.nextLine();
 		
-		AccountDao.getInstance().insert(use, classify, money, memo);
+		AccountDto dto = new AccountDto(null, use, classify, money, memo);
+		boolean b = AccountDao.getInstance().insert(dto);
+
+		if(b) {
+			System.out.println("정상적으로 추가되었습니다.");
+			return;
+		}
+		System.out.println("추가 실패");
 		sc.close();
 	}
 

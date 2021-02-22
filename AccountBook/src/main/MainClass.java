@@ -9,7 +9,7 @@ import cls.UpdateCls;
 import dao.AccountDao;
 
 public class MainClass {
-
+	
 	public static void main(String[] args) {
 		/*
 		 * 추가하기
@@ -30,7 +30,6 @@ public class MainClass {
 	
 	public void menu() {
 		Scanner sc = new Scanner(System.in);
-		
 		System.out.println("================= M E N U =====================");
 		System.out.println("| 1.추가   2.삭제   3.검색   4.수정   5.출력   6.합계   7.종료 |");
 		System.out.println("===============================================");
@@ -45,9 +44,8 @@ public class MainClass {
 			case 5 : AccountDao.getInstance().selete();		break;
 			case 6 : AccountDao.getInstance().totalSum();	break;
 			case 7 : System.out.println("종료합니다.");
-					 System.out.close();	break;
+					 System.exit(0);	break;
 		}
-		//sc.close();
 	}
 
 }

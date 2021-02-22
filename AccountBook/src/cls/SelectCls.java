@@ -11,7 +11,7 @@ public class SelectCls {
 		String sdate = "";
 		String suse = "";
 		
-		System.out.print("검색할 항목(1.날짜/2.제목):");
+		System.out.print("검색할 항목(1.날짜/2.제목/3.지출):");
 		int num = sc.nextInt();
 		
 		if(num == 1) {
@@ -28,6 +28,10 @@ public class SelectCls {
 		}else if(num == 2) {
 			System.out.print("검색할 제목:");
 			suse = sc.next();
+			
+		}else if(num == 3) {
+			AccountDao.getInstance().sort();
+			return;
 		}
 		
 		AccountDao.getInstance().selete(sdate, suse);
